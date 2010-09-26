@@ -1,0 +1,13 @@
+html-template/*
+bin/*
+example/bin/*
+build/*.properties
+!build/build.properties
+
+.settings/*
+.actionScriptProperties
+.project
+
+Thumbs.db
+.DS_Store
+tempViewerHTML.html

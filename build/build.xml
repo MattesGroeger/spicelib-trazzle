@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project name="spicelib-trazzle" basedir="../" default="[compile] library">
+	
+	<property file="build/${user.name}.properties" />
+	<property file="build/build.properties" />
+
+	<target name="[compile] library" description="compiles swc file">
+
+		<mkdir dir="${deploy.dir}" />
+
+		<delete includeemptydirs="true">
+			<fileset dir="${deploy.dir}" includes="**/*" />
+		</delete>
+
+		<exec executable="${compc}" spawn="no">
+			<arg line="+configname=air" />
+			<arg line="-sp ${src.dir}" />
+			<arg line="-el ${libs.dir}" />
+			<arg line="-el ${playerglobal.swc}" />
+			<arg line="-el ${flexsdk.lib.dir}" />
+			<arg line="-is ${src.dir}" />
+			<arg line="-output='${deploy.dir}/${library.name.versioned}.swc'" />
+		</exec>
+
+	</target>
+
+</project>
